@@ -2,8 +2,10 @@
 const functions = require("firebase-functions");
 const express = require("express");
 const path = require("path");
-
 const app = express();
+const fs =require('fs');
+
+
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/",function (req, res) {
@@ -20,9 +22,10 @@ app.post("/youbou",function (req, res) {
   console.log("req.bodyの中身",req.body);
 });
 
+const zairyou = JSON.parse(fs.readFileSync("./zairyou.json","utf8"));
+
 app.get("/zairyou",function (req,res){
-    res.setHeader("Content-Type","application/json;charset=utf-8");
-    res.sendFile(path.join(__dirname,"zairyou.json"));
+    res.send(zairyou);
 
 });
 
