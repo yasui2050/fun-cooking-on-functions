@@ -20,6 +20,12 @@ app.post("/youbou",function (req, res) {
   console.log("req.bodyの中身",req.body);
 });
 
+app.get("/zairyou",function (req,res){
+    res.setHeader("Content-Type","application/json;charset=utf-8");
+    res.sendFile(path.join(__dirname,"zairyou.json"));
+
+});
+
 //　Cloud Functions にエクスポート
 exports.app = functions.https.onRequest(app);
 
