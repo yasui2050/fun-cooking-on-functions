@@ -22,7 +22,7 @@ app.post("/youbou",function (req, res) {
   console.log("req.bodyの中身",req.body);
 });
 
-const zairyou = JSON.parse(fs.readFileSync("./zairyou.json","utf8"));
+const zairyou = require("./zairyou.json");
 
 app.get("/zairyou",function (req,res){
     res.send(zairyou);
