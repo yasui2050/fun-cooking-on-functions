@@ -29,8 +29,10 @@ app.get("/zairyou",function(req,res){
 });
 
 app.post("/zairyou",function (req,res){
-    zairyou.材料[0].name = req.body.updatedzairyou;
-    console.log("材料を更新:",req.body.updatedzairyou);
+    console.log("POST /zairyou にアクセスされました");
+    const newName = req.body.updatedzairyou;
+    zairyou.材料[0].name = newName;
+    console.log("材料を更新:",newName);
     res.send(zairyou);
 });
 
