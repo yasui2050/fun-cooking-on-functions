@@ -24,10 +24,6 @@ app.post("/youbou",function (req, res) {
 
 const zairyou = require("./zairyou.json");
 
-app.get("/zairyou",function(req,res){
-    res.send(zairyou);
-});
-
 app.post("/zairyou",function (req,res){
     console.log("POST /zairyou にアクセスされました");
     const newName = req.body.updatedzairyou;
