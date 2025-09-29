@@ -1,10 +1,10 @@
 // index.js
 const functions = require("firebase-functions");
 const express = require("express");
+
 const path = require("path");
 const app = express();
 const fs =require('fs');
-
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -24,10 +24,16 @@ app.post("/youbou",function (req, res) {
 
 const zairyou = require("./zairyou.json");
 
-app.get("/zairyou",function (req,res){
+app.get("/zairyou",function(req,res){
     res.send(zairyou);
-
 });
+
+app.post("/zairyou",function (req,res){
+    zairyou.材料[0].name = req.body.updatedzairyou;
+    console.log("材料を更新:",req.body.updatedzairyou);
+    res.send(zairyou);
+});
+
 
 //　Cloud Functions にエクスポート
 exports.app = functions.https.onRequest(app);
