@@ -28,7 +28,7 @@ app.post("/zairyou",function (req,res){
     console.log("POST /zairyou にアクセスされました");
     const newName = req.body.updatedzairyou;
     zairyou.材料[0].name = newName;
-    console.log("材料を更新:",newName);
+    console.log("材料を更新（messege from server):",newName);
     res.send(zairyou);
 });
 
