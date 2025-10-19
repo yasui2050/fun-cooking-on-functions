@@ -25,7 +25,7 @@ app.post("/youbou",function (req, res) {
 const zairyou = require("./zairyou.json");
 
 app.post("/zairyou",function (req,res){
-    console.log("POST /zairyou にアクセスされました");
+    console.log("POST /zairyou にアクセスされました（messege from server)");
     const newName = req.body.updatedzairyou;
     zairyou.材料[0].name = newName;
     console.log("材料を更新（messege from server):",newName);
